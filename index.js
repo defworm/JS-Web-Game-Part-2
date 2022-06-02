@@ -12,8 +12,9 @@ function newItem(url, left, bottom){
     let item = newImage(url, left, bottom)
 }
 
+let inventory = document.createElement('div')
 function newInventory(){
-    let inventory = document.createElement('div')
+    
     inventory.style.position = 'fixed'
     inventory.style.bottom = '0px';
     inventory.style.left = '0px'
@@ -27,6 +28,26 @@ function newInventory(){
     inventory.style.backgroundColor = 'brown'
     document.body.append(inventory)
 }
+
+function newItem(url, left, bottom){
+    let item = newImage(url, left, bottom)
+    item.addEventListener('click', function(){
+        item.remove()
+    })
+}
+
+function newItem(url, left, bottom){
+    let item = newImage(url, left, bottom)
+    item.addEventListener('click', function(){
+        item.remove()
+        let inventoryItem = document.createElement('img')
+        inventoryItem.src = url
+        inventory.append(inventoryItem)
+    })
+}
+
+
+
 
 newInventory()
 newImage('assets/green-character.gif', 100, 250)
